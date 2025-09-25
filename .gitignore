@@ -3,4 +3,4 @@ dist/
 .parcel-cache/
 .env
 *.log
-.tester/
+testing.html
