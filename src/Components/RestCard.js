@@ -1,7 +1,8 @@
-
+import { Link } from "react-router"
 
 export default function RestCard({restinfo}){
     return(
+        <Link to={"/city/delhi/"+restinfo?.info?.id}>
         <div className="mb-2 transform transition duration-200 hover:scale-95 cursor-pointer">
         <img className="w-70 h-45 object-cover rounded-2xl" src={"https://media-assets.swiggy.com/swiggy/image/upload/"+restinfo?.info?.cloudinaryImageId}></img>
         <div className="w-[90%] mx-auto mt-3 ">
@@ -26,5 +27,6 @@ export default function RestCard({restinfo}){
             <div className="text-gray-600 w-[150px] truncate min-w-0">{restinfo?.info?.cuisines.join(" ")}</div>
         </div>
         </div>
+        </Link>
     )
 }
