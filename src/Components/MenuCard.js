@@ -1,6 +1,9 @@
+import { useState } from "react"
 import RestInfo from "./RestInfo"
 
 export default function MenuCard({menuitems}){
+
+    const [isOpen, setIsOpen] = useState(true)
 
 
 
@@ -15,14 +18,33 @@ export default function MenuCard({menuitems}){
         )
     }
 
+
+    if(!isOpen){
+        return(
+        <div className="w-full">
+            <div className="flex justify-between ">
+            <p className="text-2xl font-bold">{menuitems.title}</p>
+            <button className="text-xl mr-20" onClick={()=>setIsOpen(!isOpen)}>{isOpen?"▲":"▼"}</button>
+            </div>
+            <div className="h-5 bg-gray-200 mt-2 mb-2"></div>
+        </div>
+        )
+    }
+
+
+
     return(
         <div className="w-full">
+            <div className="flex justify-between ">
             <p className="text-2xl font-bold">{menuitems.title}</p>
+            <button className="text-xl mr-20" onClick={()=>setIsOpen(!isOpen)}>{isOpen?"▲":"▼"}</button>
+            </div>
             <div>
                 {
                     menuitems?.itemCards?.map((items)=><RestInfo key={items?.card?.info?.id} restData={items?.card?.info}></RestInfo>)
                 }
             </div>
+            <div className="h-5 bg-gray-200 mt-2 mb-2"></div>
         </div>
     )
 }
