@@ -7,10 +7,13 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 import SearchFood from "./Components/SearchFood";
 import RestHeader from "./Components/RestHeader";
 import SecondaryHome from "./Components/SecondaryHome";
+import { store } from "./Stored/Stores";
+import { Provider } from "react-redux";
 
 function App(){
     return(
         <>
+        <Provider store={store}>
         <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home></Home>}></Route>
@@ -21,6 +24,7 @@ function App(){
             </Route>
         </Routes>
         </BrowserRouter>
+        </Provider>
         </>
     )
 }
