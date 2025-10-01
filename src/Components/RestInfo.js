@@ -1,26 +1,26 @@
 import { useState } from "react"
 import { addItems, IncrementItems, DecrementItems } from "../Stored/CartSlicer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function RestInfo({restData}){
 
-    const [count, setCount] = useState(0)
 
     const dispatch = useDispatch();
-
+    const items = useSelector(state?.cartSlice?.items)
+    const element = items.find(item=>item.id===restData.id);
+    const count = element? element.quantity:0
     function handleAddItems(){
-        setCount(1);
+        
         dispatch(addItems(restData))
     }
 
     function handleIncrementItems(){
-        setCount(count+1);
+        
         dispatch(IncrementItems(restData))
     }
 
 
     function handleDecrementItems(){
-        setCount(count-1);
         dispatch(DecrementItems(restData))
     }
 
