@@ -9,6 +9,7 @@ import RestHeader from "./Components/RestHeader";
 import SecondaryHome from "./Components/SecondaryHome";
 import { store } from "./Stored/Stores";
 import { Provider } from "react-redux";
+import Checkout from "./Components/Checkout";
 
 function App(){
     return(
@@ -22,6 +23,7 @@ function App(){
               <Route path="/city/delhi/:id" element={<RestaurantMenu></RestaurantMenu>}></Route>
               <Route path="/city/delhi/:id/search" element={<SearchFood></SearchFood>}></Route>
             </Route>
+            <Route path="/Checkout" element={<Checkout></Checkout>}></Route>
         </Routes>
         </BrowserRouter>
         </Provider>
